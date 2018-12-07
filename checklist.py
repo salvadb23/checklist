@@ -60,7 +60,7 @@ def select(function_code):
         return False
 
     elif function_code == "M":
-        item_index = user_input("Select object to be checked:")
+        item_index = user_input("Select index to be checked:")
         mark_completed(item_index)
 
     # Catch all
