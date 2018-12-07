@@ -26,8 +26,8 @@ def list_all_items():
 
 
 def mark_completed(index):
-    print("√ {}".format(checklist[index]))
-
+    checklist[int(index)] = "√ " + checklist[int(index)]
+    list_all_items()
 
 def user_input(prompt):
     # the input function will display a message in the terminal
@@ -59,9 +59,14 @@ def select(function_code):
         # This is where we want to stop our loop
         return False
 
+    elif function_code == "M":
+        item_index = user_input("Select object to be checked:")
+        mark_completed(item_index)
+
     # Catch all
     else:
         print("Unknown Option")
+
     return True
 
 
@@ -91,5 +96,5 @@ test()
 running = True
 while running:
     selection = user_input(
-        "Press C to add to list, R to Read from list, P to display list, and Q to quit")
+        "Press C to add to list, R to Read from list, P to display list, M to mark as completed, and Q to quit")
     running = select(selection)
